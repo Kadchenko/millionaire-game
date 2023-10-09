@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Kadchenko/millionaire-game/static/css/main.cd472f7a.css",
+    "main.js": "/Kadchenko/millionaire-game/static/js/main.10199ace.js",
+    "static/media/hand-like.svg": "/Kadchenko/millionaire-game/static/media/hand-like.532798b347c5021b112a89e891eee4bb.svg",
+    "static/media/person-question.svg": "/Kadchenko/millionaire-game/static/media/person-question.7ff4dd65b55be40cd1341a93b1b1da4b.svg",
+    "index.html": "/Kadchenko/millionaire-game/index.html",
+    "static/media/close.svg": "/Kadchenko/millionaire-game/static/media/close.8553413d179b4def21ee9f2eeeb0b7e1.svg",
+    "static/media/menu.svg": "/Kadchenko/millionaire-game/static/media/menu.c3df47390e4d8f9651258045d3204ba4.svg",
+    "main.cd472f7a.css.map": "/Kadchenko/millionaire-game/static/css/main.cd472f7a.css.map",
+    "main.10199ace.js.map": "/Kadchenko/millionaire-game/static/js/main.10199ace.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cd472f7a.css",
+    "static/js/main.10199ace.js"
+  ]
+}
