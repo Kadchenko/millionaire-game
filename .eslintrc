@@ -1,0 +1,77 @@
+{
+  "root": true,
+  "extends": [
+    "react-app",
+    "airbnb-typescript",
+    "plugin:react-redux/recommended",
+    "react-app/jest",
+    "prettier"
+  ],
+  "plugins": [
+    "react-redux",
+    "prettier"
+  ],
+
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": { "jsx": true },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./"
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "pathGroups": [
+          {
+            "pattern": "@components/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@styles/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@data/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@helpers/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@store/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@screens/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@assets/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@reduxjs/**",
+            "group": "external"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["internal"],
+        "newlines-between": "always",
+        "warnOnUnassignedImports": true,
+        "groups": ["builtin", "external", "internal", "index", "parent", "sibling", "type"]
+      }
+    ],
+    "prettier/prettier": "warn"
+  }
+}

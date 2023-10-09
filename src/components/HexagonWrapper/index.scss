@@ -1,0 +1,44 @@
+@use '../../styles/variables';
+
+.millionaireHexagon {
+  position: relative;
+  z-index: 0;
+}
+
+.millionaireHexagon__svgHexagon {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  path {
+    fill: variables.$white-100;
+  }
+}
+
+.millionaireHexagon {
+  &:after,
+  &:before {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 1px;
+    background-color: #d0d0d8;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+.millionaireHexagon:after {
+  left: calc(100% - 1px);
+}
+.millionaireHexagon:before {
+  right: calc(100% - 1px);
+}
+
+.millionaireHexagon,
+.millionaireHexagon .millionaireHexagon__svgHexagon path {
+  transition: 0.2s linear;
+}

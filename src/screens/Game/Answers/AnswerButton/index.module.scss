@@ -1,0 +1,93 @@
+@use '../../../../styles/variables';
+
+.answerButton {
+  cursor: pointer;
+  width: calc(100% - 40px); // minus size of margin
+  height: 56px;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  margin: 0 20px;
+  padding: 0 0 0 20px;
+  text-align: left;
+  font: inherit;
+  transition: 0.2s;
+
+  &__content {
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  &__variant {
+    display: inline-block;
+    color: variables.$orange-100;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-right: 8px;
+  }
+
+  @media screen and (min-width: 992px) {
+    height: 72px;
+  }
+}
+
+.answerButton:not(:disabled, .answerButton__selected, .answerButton__wrong, .answerButton__correct):hover,
+.answerButton__selected {
+  [class~="millionaireHexagon__svgHexagon"] path {
+    stroke: variables.$orange-100;
+  }
+  &:after,
+  &:before {
+    background-color: variables.$orange-100;
+  }
+}
+.answerButton__selected {
+  [class~="millionaireHexagon__svgHexagon"] path {
+    fill: variables.$orange-5;
+  }
+}
+.answerButton__hidden {
+  color: transparent;
+}
+
+@mixin animatePickMixin($colorFill, $colorStroke) {
+  0%, 40%, 80% {
+    stroke: variables.$orange-100;
+    fill: variables.$orange-5;
+    background-color: variables.$orange-100;
+  }
+  20%, 60%, 100% {
+    stroke: #{$colorStroke};
+    fill: #{$colorFill};
+    background-color: #{$colorStroke};
+  }
+}
+
+@keyframes animateWrongPick {
+  @include animatePickMixin(variables.$red-5, variables.$red-100)
+}
+@keyframes animateCorrectPick {
+  @include animatePickMixin(variables.$green-5, variables.$green-100)
+}
+
+@mixin pickAnimationMixin($animationFunction) {
+  animation: #{$animationFunction} 1s forwards;
+}
+
+.answerButton__correct [class~="millionaireHexagon__svgHexagon"] path {
+  @include pickAnimationMixin(animateCorrectPick);
+}
+.answerButton__correct:after,
+.answerButton__correct:before {
+  @include pickAnimationMixin(animateCorrectPick);
+}
+
+.answerButton__wrong [class~="millionaireHexagon__svgHexagon"] path {
+  @include pickAnimationMixin(animateWrongPick);
+}
+.answerButton__wrong:after,
+.answerButton__wrong:before {
+  @include pickAnimationMixin(animateWrongPick);
+}

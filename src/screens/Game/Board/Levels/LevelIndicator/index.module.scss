@@ -1,0 +1,45 @@
+@use '../../../../../styles/variables';
+
+.levelIndicator {
+  width: 240px;
+  min-height: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #1C1C21;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:after,
+  &:before {
+    width: 68px;
+  }
+  &.active {
+    &:after,
+    &:before {
+      background-color: variables.$orange-100;
+    }
+    [class~="millionaireHexagon__svgHexagon"] path {
+      stroke: variables.$orange-100;
+    }
+  }
+  &.passed {
+    color: #D0D0D8;
+  }
+  &__content {
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @media screen and (min-width: 992px) {
+    height: 40px;
+  }
+}

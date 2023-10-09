@@ -1,0 +1,36 @@
+@use "../../../styles/variables";
+
+.board {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  row-gap: 24px;
+  padding: 16px;
+  align-content: center;
+  grid-template-rows: auto 1fr;
+  background-color: variables.$black-5;
+  transition: left 0.2s;
+
+  &.open {
+    left: 0;
+    height: 100vh;
+  }
+
+  &__closeButton {
+    justify-self: end;
+  }
+
+  @media screen and (min-width: 992px) {
+    position: static;
+    width: auto;
+    grid-template-rows: auto;
+    background-color: variables.$white-100;
+
+    &__closeButton {
+      display: none;
+    }
+  }
+}

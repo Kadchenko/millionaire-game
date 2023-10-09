@@ -1,0 +1,11 @@
+@use "../../styles/variables";
+
+.gameScreen {
+  height: 100%;
+  display: grid;
+  background-color: variables.$black-5;
+
+  @media screen and (min-width: 992px) {
+    grid-template-columns: 1fr 376px;
+  }
+}

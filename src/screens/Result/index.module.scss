@@ -1,0 +1,87 @@
+@use '../../styles/variables';
+
+.wrapper {
+  height: 100%;
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+  display: grid;
+  row-gap: 24px;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas:
+    'handLikeImage'
+    'caption'
+    'startButton';
+
+  &:after {
+    content: '';
+    position: fixed;
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50vh solid transparent;
+    border-left: 50vw solid transparent;
+    border-right: 50vw solid variables.$orange-5;
+    border-bottom: 50vh solid variables.$orange-5;
+    z-index: -1;
+  }
+}
+
+.handLikeImage {
+  width: 100%;
+  max-width: 624px;
+  max-height: 300px;
+  grid-area: handLikeImage;
+  justify-self: end;
+  margin-top: 80px;
+}
+.caption {
+  max-width: 400px;
+  font-size: 32px;
+  font-weight: 600;
+  grid-area: caption;
+}
+.title {
+  font-size: 18px;
+  margin-bottom: 8px;
+  opacity: 0.5;
+}
+.startButton {
+  grid-area: startButton;
+  margin-bottom: 48px;
+  justify-self: center;
+  align-self: end;
+}
+
+@media screen and (min-width: 992px) {
+  .wrapper {
+    text-align: left;
+    display: grid;
+    align-content: center;
+    justify-items: normal;
+    grid-template-rows: min-content auto;
+    row-gap: 64px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    'handLikeImage caption'
+    'handLikeImage startButton';
+  }
+
+  .handLikeImage {
+    margin-top: 0;
+  }
+  .caption {
+    max-width: 624px;
+    font-size: 56px;
+    align-self: end;
+  }
+  .title {
+    font-size: 32px;
+  }
+  .startButton {
+    justify-self: auto;
+    align-self: auto;
+    margin-bottom: 0;
+  }
+}

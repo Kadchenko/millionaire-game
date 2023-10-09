@@ -1,0 +1,18 @@
+.answers {
+  display: grid;
+  width: 100%;
+  max-width: 400px;
+  row-gap: 8px;
+  margin: 0 -16px;
+
+  [class~="answerButton"] {
+    justify-self: left;
+  }
+
+  @media screen and (min-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 32px;
+    max-width: 880px;
+    margin: initial;
+  }
+}

@@ -1,0 +1,10 @@
+.hintSection {
+  display: flex;
+  column-gap: 16px;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: 992px) {
+    justify-content: initial;
+  }
+}
