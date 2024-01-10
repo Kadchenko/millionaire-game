@@ -12,7 +12,7 @@
     "format": "prettier --write src/**/*.{ts,tsx}",
     "type-check": "tsc -p tsconfig.json --pretty --noEmit",
     "prepare": "husky install",
-    "predeploy": "yarn build",
+    "predeploy": "craco build",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
