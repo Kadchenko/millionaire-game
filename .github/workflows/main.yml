@@ -13,11 +13,17 @@ defaults:
     shell: bash
 
 jobs:
-  setup_common:
+  run_tests:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
 
       - name: Cache dependencies
         uses: actions/cache@v2
@@ -26,19 +32,6 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-
-  run_tests:
-    runs-on: ubuntu-latest
-    needs: [setup_common]
-
-    steps:
-      - name: Setup common
-        uses: ./.github/actions/setup_common.yml
 
       - name: Install dependencies
         run: yarn install
@@ -51,8 +44,13 @@ jobs:
     needs: [run_tests]
 
     steps:
-      - name: Setup common
-        uses: ./.github/actions/setup_common.yml
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
 
       - name: Install dependencies
         run: yarn install # Uses cached dependencies if available
@@ -71,8 +69,13 @@ jobs:
     needs: [lint_and_format]
 
     steps:
-      - name: Setup common
-        uses: ./.github/actions/setup_common.yml
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
 
       - name: Install dependencies
         run: yarn install # Uses cached dependencies if available
