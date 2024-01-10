@@ -33,14 +33,17 @@
   }
 }
 
-.answerButton:not(:disabled, .answerButton__selected, .answerButton__wrong, .answerButton__correct):hover,
-.answerButton__selected {
-  [class~="millionaireHexagon__svgHexagon"] path {
-    stroke: variables.$orange-100;
-  }
-  &:after,
-  &:before {
-    background-color: variables.$orange-100;
+@media not all and (hover: none) {
+  .answerButton:not(:disabled, .answerButton__selected, .answerButton__wrong, .answerButton__correct):hover,
+  .answerButton__selected {
+    [class~="millionaireHexagon__svgHexagon"] path {
+      stroke: variables.$orange-100;
+    }
+
+    &:after,
+    &:before {
+      background-color: variables.$orange-100;
+    }
   }
 }
 .answerButton__selected {
@@ -59,9 +62,9 @@
     background-color: variables.$orange-100;
   }
   20%, 60%, 100% {
-    stroke: #{$colorStroke};
-    fill: #{$colorFill};
-    background-color: #{$colorStroke};
+    stroke: $colorStroke;
+    fill: $colorFill;
+    background-color: $colorStroke;
   }
 }
 
@@ -73,7 +76,7 @@
 }
 
 @mixin pickAnimationMixin($animationFunction) {
-  animation: #{$animationFunction} 1s forwards;
+  animation: $animationFunction 1s forwards;
 }
 
 .answerButton__correct [class~="millionaireHexagon__svgHexagon"] path {
